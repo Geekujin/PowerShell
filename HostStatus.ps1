@@ -6,14 +6,15 @@ Version:	1.0
 About:		
 This script runs through a list of computers specified in a file list and checks to see if they respond to a "Test Connection" ping. The status is then shown and updated every minute.
 
-
 #>
 
-# Enter the filepath to the file containing the hostnames. Each host should be on a separate line.
+# The server list can either be specified in an external file or placed in an array in this file. 
 
+# Enter the filepath to the file containing the hostnames. Each host should be on a separate line.
 [Array] $Servers = Get-Content -Path "\path\to\serverlist.txt"
 
-
+# Comment out the line above and uncomment the below line to add the server list to this script
+# $Servers = "hostname1", "hostname2", "hostname3"
 
 # DO NOT MODIFY BELOW THIS LINE
 
