@@ -1,11 +1,8 @@
 <#
-Title:		Online Host Checker
-Created by: 	Marc Jones
-Version:	1.0
-
-About:		
-This script runs through a list of computers specified in a file list and checks to see if they respond to a "Test Connection" ping. The status is then shown and updated every minute.
-
+Title: Get-HostStatus
+Version: 0.9
+Author: Geekthumb
+Info: This script runs through a list of computers specified in a file list and checks to see if they respond to a "Test Connection" ping. The status is then shown and updated every minute.
 #>
 
 # The server list can either be specified in an external file or placed in an array in this file. 
