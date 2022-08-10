@@ -1,6 +1,6 @@
 <#
-Title:		Service Checker Powershell Script
-Created by: Marc Jones (@DrGeekthumb)
+Title:	Service Checker Powershell Script
+Created by: Geekthumb
 
 About:
 This script will Report the status of any specified services from a specific server, and will then start any stopped services from the list if requested.
@@ -16,18 +16,20 @@ For each server you wish to check, there must be a <hostname>.txt file in the pa
 param(
 [string]$srv
 )
-#Set your variables here
 
-#Add the name of the server here, in quotes
+
+<# This section is for pulling the services list from a separate file. Comment out this block if you wish to add the server and services directly to this file #>
+
+# This pulls the name of the server from the command line argument.
 $ServerName = $srv
 
-#Add the path to a text file containing a list of each service to check on a different line
+# Add the path to the server txt files. Note, do not change $srv.txt
 $SrvList = "\path\to\$srv.txt"
-#Add the NAME of each service here in quotes. Each service must be separated by a comma
+
+# This adds the services from the above file into an array to be processed
 [Array] $Services = Get-Content -Path $SrvList
 
-# DO NOT MODIFY BELOW THIS LINE
-
+# Makes the list look tidier
 Function List-Svc {
 Write-Host " "
 Write-Host "Status   Name"
