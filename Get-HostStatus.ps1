@@ -1,7 +1,7 @@
 <#
 Title: Get-HostStatus
 Version: 0.9
-Author: Geekthumb
+Author: DrGeekthumb
 Info: This script runs through a list of computers specified in a file list and checks to see if they respond to a "Test Connection" ping. The status is then shown and updated every minute.
 #>
 
