@@ -1,9 +1,25 @@
-# PowerShell collection
-This is a repo of powershell scripts I've either created or collected that I've found useful making small repetitive tasks that little bit easier or quicker during my IT work.
+# PowerShell Collection
 
-# To Do:
+A repository of PowerShell scripts I've knocked together
 
-- Add more scripts
-- Organise said scripts
-- ???
-- Profit
+
+
+## Scripts
+
+The same output can be generated using List-Scripts
+
+
+
+| Script Name           | Synopsis
+| --------------------- | ----
+| Get-GeoIP             | Displays Geographic Info for a given IP Address.
+| Get-Hashes            | Calculates and displays supported hashes for a specified file, with optional VirusTotal search.
+| Get-IPInfo            | Displays information for a given IP Address.
+| Get-TCPConnections    | Lists local listening TCP connections by port and process name
+| List-Scripts          | Lists all scripts within the current directory.
+| Set-ErrorColor        | Change the ERROR and WARNING text colour inside the terminal
+| Show-Colors           | Shows a full MS PowerShell terminal colour chart with key.
+| Show-Quote            | Displays a random quote from a quotes.txt file.
+| Show-WarningColors    | Test and display different colour combinations for ERROR and WARNING text
+| Test-HostConnection   | Pings machines every 10s and shows colourful online status.
+

@@ -1,41 +1,50 @@
 <#
+################################################################################
 .SYNOPSIS
-    Calculates and displays supported hashes for a specified file, with optional VirusTotal search.
+    Calculates and displays supported hashes for a specified file, 
+	with optional VirusTotal search.
 
 .DESCRIPTION
-    Calculates all supported hashes for a given file, displaying the output in the console. Prompts for
-	filepath within script if omitted.
-	Optional parameters allow saving the hash output to a .txt file or automatically launching a VirusTotal
-	search. There are options for self testing and also running in debug mode
+    Calculates all supported hashes for a given file, displaying the output in 
+	the console. Prompts for filepath within script if omitted.	Optional 
+	parameter allows automatically launching a VirusTotal search.
 
 .PARAMETER File
-    Mandatory. Specify the file to check. File paths with spaces must be enclosed in quotes.
+    Mandatory. 
+	Specify the file to check. Paths with spaces must be enclosed in quotes.
 	
 .PARAMETER VT
-	Optional. After calculating the hashes, searches VirusTotal for the SHA1 hash using the default browser.
+	Optional. 
+	After calculating the hashes, searches VirusTotal using the default browser.
 		
 .PARAMETER Test
-	Optional. Performs a self-test by calculating the SHA256 of a file and comparing it against a value stored in $ExpectedHash
+	Optional. 
+	Performs a self-test by calculating the SHA256 of a file and comparing it
+	against a value stored in $ExpectedHash.
 	
 .PARAMETER Debug
-	Optional. Uses PowerShell's built in debugging functionality, with additional context provided.
+	Optional. Uses PowerShell's built in debugging functionality.
 
 .EXAMPLE
     Get-Hashes -File "C:\My Files\file.exe"
 	Calculate hashes for file.exe and display the output in the console.
 	
 	Get-Hashes -File "C:\My Files\file.exe" -VT
-	Calculate and display hashes for file.exe and then launch a VirusTotal search.
+	Calculate and display hashes for file.exe andlaunch a VirusTotal search.
 
 .NOTES
-    Author: 	Geekujin
-	Contact: 	hello [at] geekujin [dot] net
-    Version: 	2.0
-	About: 		overhaul of a script I created for a uni exam. future versions will likely include the ability to directly check the file on
-				VirusTotal using the API, and the ability to return a single raw hash string for a given algorithm.
+    Author:  Geekujin
+    Version: 1.2
+	Created: 2025-11-20
+	Updated: 2025-11-23
+	About: 	 Overhaul of a script I created for a uni exam. future versions 
+			 may include the ability to directly check the file on VirusTotal
+			 using the API, and return just the hash for a given algorithm.
+
+################################################################################
 #>
 
-# Parameters and enabling of native debug support
+# Commandline arguments and enabling of native debug support
 [CmdletBinding(SupportsShouldProcess=$true)]
 param(
 	[Parameter(Mandatory=$false, ValueFromPipelineByPropertyName=$true)]
@@ -60,6 +69,13 @@ $TestHash = "A0151E1B63C7410CB03D9DD4FCD5371632F28E8E97D1E402ED73774D5B8480F1"
 # Functions #
 
 function Test-Hashing {
+	<#
+	The testing function should be used to ensure that the correct hash is being returned for files.
+	Create a file or choose an existing one and use a different tool to calculate the SHA256 hash.
+	Update the $TestFile and $TestHash variables above to the new values. The Test-Hashing function
+	will then compare the test hash with a new calculation and ensure they match.
+	It's probably pointless but may be useful to confirm it's working correctly.
+	#>
 	
 	Write-Debug "Starting self-test function."
 	
