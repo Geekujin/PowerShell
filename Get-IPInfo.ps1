@@ -2,18 +2,19 @@
 ################################################################################
 
 .SYNOPSIS
-    Displays Geographic Info for a given IP Address.
+    Displays information for a given IP Address.
 
 .DESCRIPTION
-    Uses the HackerTarget API to display geo info about an IP address.
+    Uses the IPInfo API to display information about an IP address, including
+	geolocation, hostname and ISP.
 
 .PARAMETER IPv4 Address
 	Mandatory parameter.
-
+	
 .NOTES
     Author: Geekujin
     Version: 1.0
-	Created: 2022-08-12
+	Created: 2023-03-23
 	
 ################################################################################
 #>
@@ -24,6 +25,6 @@ param(
 )
 
 Write-Host " "
-curl https://api.hackertarget.com/geoip/?q=$ip -UseBasicParsing | Select-Object -Expand Content | FT
+Invoke-RestMethod https://ipinfo.io/$ip
 Write-Host " "
 #  
